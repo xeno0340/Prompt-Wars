@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-deep-navy via-[#0F1729] to-black text-white font-body;
+    background-attachment: fixed;
+  }
+
+  * {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  /* Glowing card effect */
+  .cyber-card {
+    @apply bg-gradient-to-br from-deep-navy/90 to-deep-navy/50 
+           border border-cyber-blue/30 rounded-xl p-6
+           backdrop-blur-sm
+           shadow-[0_0_30px_rgba(0,212,255,0.1)]
+           transition-all duration-300
+           hover:shadow-[0_0_50px_rgba(0,212,255,0.3)]
+           hover:border-cyber-blue/60;
+  }
+
+  /* Neon text glow */
+  .neon-text {
+    @apply text-cyber-blue drop-shadow-[0_0_10px_rgba(0,212,255,0.8)];
+  }
+
+  /* Gold accent text */
+  .gold-text {
+    @apply text-electric-gold drop-shadow-[0_0_10px_rgba(255,184,0,0.8)];
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyber-blue to-neon-purple 
+           text-white font-semibold py-3 px-6 rounded-lg
+           shadow-[0_0_20px_rgba(0,212,255,0.4)]
+           hover:shadow-[0_0_40px_rgba(0,212,255,0.6)]
+           transition-all duration-300
+           hover:scale-105
+           active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-electric-gold to-orange-500 
+           text-deep-navy font-semibold py-3 px-6 rounded-lg
+           shadow-[0_0_20px_rgba(255,184,0,0.4)]
+           hover:shadow-[0_0_40px_rgba(255,184,0,0.6)]
+           transition-all duration-300
+           hover:scale-105
+           active:scale-95;
+  }
+
+  /* Input fields */
+  .cyber-input {
+    @apply bg-deep-navy/80 border border-cyber-blue/40 
+           rounded-lg px-4 py-3 text-white
+           focus:outline-none focus:border-cyber-blue 
+           focus:ring-2 focus:ring-cyber-blue/20
+           placeholder-gray-500
+           transition-all duration-200;
+  }
+
+  /* Circuit pattern background */
+  .circuit-bg {
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Loading animation */
+  .loading-dots {
+    @apply inline-flex gap-1;
+  }
+
+  .loading-dots span {
+    @apply w-2 h-2 bg-cyber-blue rounded-full animate-bounce;
+  }
+
+  .loading-dots span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .loading-dots span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+}
+/* Confetti Animation */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Scrolling Commentary */
+.animate-scroll {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
